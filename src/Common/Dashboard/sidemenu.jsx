@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 
 function Sidemenu() {
+    const [studentList, setStudentList] = useState(false)
     return (
         <div className="w-60 h-100 shadow-md bg-white absolute py-3 " id="sidenavSecExample">
             <div className="pt-4 pb-2 px-6">
@@ -58,7 +59,7 @@ function Sidemenu() {
 
 
                     <div className="d-flex justify-content-center p-5">
-                        <Dropdown toggle={function noRefCheck() { }}>
+                        <Dropdown isOpen={studentList} toggle={ ()=>setStudentList(!studentList)}>
                             <DropdownToggle caret>
                                 Students
                             </DropdownToggle>
