@@ -25,25 +25,29 @@ function CardView(props) {
   return (<>
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-4 m-auto d-flex  py-20 h-40" >
       <div style={{ width: '15%' }}>
-        <img className="w-sm" src={details.avatar} alt="Sunset in the mountains" />
+        <img className="w-sm" src={details.avatar} alt="Not Available" />
       </div>
       <div className="px-6 py-2 d-flex justify-content-lg-start" style={{ width: '40%', fontSize: '15px' }}>
         <div className="font-bold text-xl mb-2 " style={{ width: '65%', textAlign: 'left' }}>
           <p className="text-gray-700 text-base ">
             <b>Id : </b>001<br />
-            <b>Name: </b>{details.first_name}<br />
-            <b>Father' Name : </b>{details.email}<br />
-            <b>Year of Admission : </b>2022<br />
-            <b>Current Session: </b>2022-23<br />
+            <b>Name: </b>{details.name}<br />
+            <b>Father' Name : </b>{details.father_name}<br />
+            <b>Year of Admission : </b>{details.year_of_admission}<br />
+            <b>Current Session: </b>{details.current_session}<br />
+            <b>Section alias: </b>{details.section_alias}<br />
+
+            
           </p>
 
         </div>
         <div style={{ width: '35%', textAlign: 'left' }}>
           <p className="text-gray-700 text-base ">
-            <b>krId : </b>kr0121<br />
-            <b>Class : </b>5th<br />
-            <b>Section : </b>A<br />
-            <b>Batch : </b>Morning<br />
+            <b>krId : </b>{details.krId}<br />
+            <b>Registraion Id : </b>{details.registration}<br />
+            <b>Class : </b>{details.class}<br />
+            <b>Section : </b>{details.section}<br />
+            <b>Batch : </b>{details.batch}<br />
           </p>
         </div>
       </div>
