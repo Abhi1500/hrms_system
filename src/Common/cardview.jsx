@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Collapse } from 'reactstrap';
+import {  Button} from 'reactstrap';
 import ModelComponent from './model';
 import PropTypes from 'prop-types';
 
