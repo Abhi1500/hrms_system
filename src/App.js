@@ -5,12 +5,13 @@ import Management from './Pages/Management/management';
 import Dashboard from './Common/Dashboard/dashboard';
 import Protected from './Pages/private/private'
 import Student from './Common/StudentList/Student';
+import Welcome from './welcome/welcome';
 
 function App() {
 
   const routes = useRoutes([
-    { path:'/wed', element: <Management/> },
-    { path:'/', element: <Protected page={<Dashboard />} />, children: [
+    { path:'/', element: <Welcome/> },
+    { path:'/dfg', element: <Protected page={<Dashboard />} />, children: [
       { path: 'student', element: <Management /> }] },
   ])
 

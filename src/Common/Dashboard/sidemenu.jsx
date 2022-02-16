@@ -59,8 +59,8 @@ function Sidemenu() {
 
 
                     <div className="d-flex justify-content-center p-5">
-                        <Dropdown isOpen={studentList} toggle={ ()=>setStudentList(!studentList)}>
-                            <DropdownToggle caret>
+                        <Dropdown outline color="primary" isOpen={studentList} toggle={ ()=>setStudentList(!studentList)} >
+                            <DropdownToggle caret style={{backgroundColor:'white'}}>
                                 Students
                             </DropdownToggle>
                             <DropdownMenu
