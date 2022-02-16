@@ -1,94 +1,67 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import image from '../../welcome/images/logo.png'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 
-function Sidemenu() {
-    const [studentList, setStudentList] = useState(false)
+export default function  Sidemenu() {
+    const [viewstudentList, setViewstudentList] = useState(false)
+    const [viewteacherstList, setViewteacherstList] = useState(false)
     return (
-        <div className="w-60 h-100 shadow-md bg-white absolute py-3 " id="sidenavSecExample">
-            <div className="pt-4 pb-2 px-6">
+        <div className="w-60 h-100 shadow-md  absolute py-0 " id="sidenavSecExample">
+            <div className="pt-0 pb-2 px-6">
                 <a href="#!">
                     <div className="flex items-center ">
-                        <div className="shrink-0">
-                            {/* <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" className="rounded-full w-10" alt="Avatar" /> */}
+                        <div className="shrink-0 mb-3">
+                            <img src={image} className="rounded-full " style={{width:'-webkit-fill-available'}} alt="Avatar" />
                         </div>
-                        <div className="grow ml-3">
-                            <p className="text-sm font-semibold text-blue-600">School Name</p>
-                        </div>
+                        
                     </div>
                 </a>
+                <div><p style={{color:'blue'}}><strong>St. Xavier's High School</strong></p></div>
             </div>
             <ul className="relative px-1 ">
                 <li className="relative my-3">
-                    <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="primary">
-                        <i className="bi bi-speedometer"></i>
-                        <span>Dashboard</span>
-                    </a>
+                <button type="button" class="btn btn-secondary" style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }}><i class="bi bi-speedometer2"style={{color:'black',fontSize:'20px'}}></i>  Dashboard</button>
+
                 </li>
                 <li className="relative my-3" id="sidenavSecEx2">
-                    <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer" data-mdb-ripple="true" data-mdb-ripple-color="primary" data-bs-toggle="collapse" data-bs-target="#collapseSidenavSecEx2" aria-expanded="false" aria-controls="collapseSidenavSecEx2">
-                        <i className="bi bi-person-circle"></i>
-                        <span>teachers</span>
-                        <i className="bi bi-caret-down-fill"></i>
-                    </a>
-                    <ul className="relative accordion-collapse collapse" id="collapseSidenavSecEx2" aria-labelledby="sidenavSecEx2" data-bs-parent="#sidenavSecExample">
-                        <li className="relative">
-                            <a href="#!" className="flex items-center text-xs py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="primary">Link 1</a>
-                        </li>
-                        <li className="relative">
-                            <a href="#!" className="flex items-center text-xs py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="primary">Link 2</a>
-                        </li>
-                    </ul>
-                </li>
-                <li className="relative my-3" id="sidenavSecEx3">
-                    <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer" data-mdb-ripple="true" data-mdb-ripple-color="primary" data-bs-toggle="collapse" data-bs-target="#collapseSidenavSecEx3" aria-expanded="false" aria-controls="collapseSidenavSecEx3">
-                        <i className="bi bi-people-fill"></i>
-                        <span>Students</span>
-                        <i className="bi bi-caret-down-fill"></i>
-
-                    </a>
-                    <ul className="relative accordion-collapse collapse" id="collapseSidenavSecEx3" aria-labelledby="sidenavSecEx3" data-bs-parent="#sidenavSecExample">
-                        <li className="relative">
-                            <a href="#!" className="flex items-center text-xs py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="primary">Link 3</a>
-                        </li>
-                        <li className="relative">
-                            <a href="#!" className="flex items-center text-xs py-4 pl-12 pr-6 h-6 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="primary">Link 4</a>
-                        </li>
-                    </ul>
-
-
-
-                    <div className="d-flex justify-content-center p-5">
-                        <Dropdown outline color="primary" isOpen={studentList} toggle={ ()=>setStudentList(!studentList)} >
-                            <DropdownToggle caret style={{backgroundColor:'white'}}>
-                                Students
+                    <div className="d-flex justify-content-center ">
+                        <Dropdown outline color="primary" isOpen={viewteacherstList} toggle={() => setViewteacherstList(!viewteacherstList)} >
+                            <DropdownToggle caret style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }} >
+                            <i class="bi bi-person-circle"style={{color:'black',fontSize:'20px'}}></i>  Teachers
                             </DropdownToggle>
                             <DropdownMenu
                             >
                                 <DropdownItem header>
-                                    Header
+                                    <span><Link to='teachers' style={{ textDecoration: 'none' }}>Teachers List</Link></span>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    Some Action
+                                    <span><Link to='createTeachers' style={{ textDecoration: 'none' }}>Add Teachers</Link></span>
                                 </DropdownItem>
-                                <DropdownItem text>
-                                    Dropdown Item Text
+
+
+                            </DropdownMenu>
+                        </Dropdown></div>
+                </li>
+                <li>
+                    <div className="d-flex justify-content-center ">
+                        <Dropdown outline color="primary" isOpen={viewstudentList} toggle={() => setViewstudentList(!viewstudentList)} >
+                            <DropdownToggle caret style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }} >
+                            <b><i class="bi bi-people-fill"style={{color:'black',fontSize:'20px'}}></i></b>  Students
+                            </DropdownToggle>
+                            <DropdownMenu
+                            >
+                                <DropdownItem header>
+                                    <span><Link to='student' style={{ textDecoration: 'none' }}>Student List</Link></span>
                                 </DropdownItem>
-                                
+                                <DropdownItem>
+                                    <span><Link to='createStudent' style={{ textDecoration: 'none' }}>Add Student</Link></span>
+                                </DropdownItem>
+
+
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-
-
-
-
-                    <li className="relative my-3">
-                        <a className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out" href="#!" data-mdb-ripple="true" data-mdb-ripple-color="primary">
-                            <i className="bi bi-speedometer"></i>
-                            <span><Link to='student'>Student</Link></span>
-                        </a>
-                    </li>
-
                 </li>
             </ul>
 
@@ -96,4 +69,3 @@ function Sidemenu() {
     )
 }
 
-export default Sidemenu
