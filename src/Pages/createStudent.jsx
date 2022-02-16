@@ -22,9 +22,12 @@ export default function CreateStudent() {
 
             if(val?.length) 
                isValid = false; 
-        }
+        
 
         setAllValues((prev)=>({...prev, [e.target.name]: { val, isValid } }))
+        break;
+        
+        
      }
 
      const Validate=()=>{
@@ -42,16 +45,16 @@ export default function CreateStudent() {
          }
      }
     return (<>
-        {/* <form className='m-2 '>
+        <form className='m-2 '>
           <div className="form-row ">
-                <div className='d-flex mb-3'> */}
+                <div className='d-flex mb-3'>
                     <div className="form-group col-md-6 me-1 d-flex flex-column">
                         <label for="fName">Name</label>
                         <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={changeHandler}/>
                         {allValues.fname.isValid && <small className='text-danger'>Invalid User Name</small> }
                         
                     </div>
-                    {/* <div className="form-group col-md-6 ">
+                    <div className="form-group col-md-6 ">
                         <label for="lName">Last Name</label>
                         <input type="text" className="form-control" id="LName" name='lname' placeholder="Last Name" value={allValues.lname} onChange={changeHandler}/>
                     </div>
@@ -149,7 +152,7 @@ export default function CreateStudent() {
             </div>
             <label className="form-label" for="customFile">Upload image (Passport Size)</label>
             <input type="file" className="form-control" id="customFile" /> 
-        </form>*/}
+        </form>
 
             <button type="submit" className="btn btn-primary m-2"  disabled={!allValues.fname || allValues.fname.length < 5 || !allValues.lname} onClick={Validate}>Create</button>
      
@@ -157,4 +160,5 @@ export default function CreateStudent() {
     </>
 
     )
+}
 }
