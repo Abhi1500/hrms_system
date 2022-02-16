@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
+// <<<<<<< Ashish-StudentList
 import { Alert, Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Collapse, Popover, PopoverBody, PopoverHeader } from 'reactstrap';
+// =======
+import {  Button} from 'reactstrap';
+// >>>>>>> master
 import ModelComponent from './model';
 import PropTypes from 'prop-types';
 
