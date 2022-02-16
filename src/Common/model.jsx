@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Modal, ModalBody, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap';
-import CardView from './cardview';
 
 export default function ModelComponent(props) {
     const { details = {} } = props;
-    const { email, first_name, avatar } = details
 
     const [toggalModel, settoggalModel] = useState(false);
 

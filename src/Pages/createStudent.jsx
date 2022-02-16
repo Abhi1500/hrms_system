@@ -56,15 +56,15 @@ export default function CreateStudent() {
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
-                case 'password':
-                    console.log(key, val?.length);
-    
-                    if (val?.length && /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(val))
-                        isValid = false;
-                    setAllValues({ ...allValues, [key]: { val, isValid } })
-                    break;
-                default:
-                    break;
+            case 'password':
+                console.log(key, val?.length);
+
+                if (val?.length && /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(val))
+                    isValid = false;
+                setAllValues({ ...allValues, [key]: { val, isValid } })
+                break;
+            default:
+                break;
         }
 
 
@@ -86,133 +86,130 @@ export default function CreateStudent() {
     }
     return (<>
         <form className='m-2 '>
-<<<<<<< HEAD
-          <div className="form-row ">
-                <div className='d-flex mb-3'> 
-=======
             <div className="form-row ">
                 <div className='d-flex mb-3'>
->>>>>>> 280f514eb45f6ff221e836648f0b04eb705ec3d3
-                    <div className="form-group col-md-6 me-1 d-flex flex-column">
-                        <label for="fName">Name</label>
-                        <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={changeHandler} />
-                        {allValues.fname.isValid && <small className='text-danger'>Invalid User Name</small>}
+
+                    <div className="form-row ">
+                        <div className='d-flex mb-3'>
+                            <div className="form-group col-md-6 me-1 d-flex flex-column">
+                                <label for="fName">Name</label>
+                                <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={changeHandler} />
+                                {allValues.fname.isValid && <small className='text-danger'>Invalid User Name</small>}
+
+                            </div>
+                            * <div className="form-group col-md-6 ">
+                                <label for="lName">Last Name</label>
+                                <input type="text" className="form-control" id="LName" name='lname' placeholder="Last Name" value={allValues.lname.val} onChange={changeHandler} />
+                                {allValues.lname.isValid && <small className='text-danger'>Invalid User Name</small>}
+                            </div>
+                        </div>
+
+
+
+                        <div className='d-flex mb-3'>
+                            <div className="form-group col-md-6 me-1">
+                                <label for="fatherName">Father's Name</label>
+                                <input type="text" className="form-control" id="fName" name='fathername' placeholder="Father's Name" value={allValues.fathername.val} onChange={changeHandler} />
+                                {allValues.fathername.isValid && <small className='text-danger'>Invalid User Name</small>}
+                            </div>
+                            <div className="form-group col-md-6 ">
+                                <label for="MotherName">Mother's Name</label>
+                                <input type="text" className="form-control" id="MotherName" placeholder="Mother's Name" name='mothername' value={allValues.mothername.val} onChange={changeHandler} />
+                                {allValues.mothername.isValid && <small className='text-danger'>Invalid User Name</small>}
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div className='d-flex mb-3'>
+                            <div className="form-group col-md-6 me-1">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" className="form-control" id="inputEmail4" name='email' placeholder="Email" value={allValues.email.val} onChange={changeHandler} />
+                                {allValues.email.isValid && <small className='text-danger'>Enter a valid email address</small>}
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label for="inputPassword4">Password</label>
+                                <input type="password" className="form-control" id="inputPassword4" name='password' placeholder="Password" value={allValues.password.val} onChange={changeHandler} />
+                                {allValues.password.isValid && <small className='text-danger'>Must contain 8 characters consists of upperCase lowerCase numeric And special character</small>}
+
+                            </div>
+                        </div>
 
                     </div>
-                    * <div className="form-group col-md-6 ">
-                        <label for="lName">Last Name</label>
-                        <input type="text" className="form-control" id="LName" name='lname' placeholder="Last Name" value={allValues.lname.val} onChange={changeHandler} />
-                        {allValues.lname.isValid && <small className='text-danger'>Invalid User Name</small>}
+                    <div className="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
                     </div>
+                    <div className="form-group">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group  d-flex">
+                            <div className='col-md-6'> <label for="inputCity">City</label>
+                                <input type="text" className="form-control" id="inputCity" /></div>
+                            <div className='col-md-6'>
+
+                                <label for="inputZip">Zip</label>
+                                <input type="text" className="form-control" id="inputZip" />
+                            </div>
+
+
+                        </div>
+                        <div className='d-flex '>
+
+                            <div className="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <select id="inputState" className="form-control">
+                                    <option selected>Select...</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Arunachal Pradesh</option>
+                                    <option>Assam</option>
+                                    <option>Bihae </option>
+                                    <option>Chattisgarh Pradesh</option>
+                                    <option>Goa</option>
+                                    <option>gujarat</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+                                    <option>Andhra Pradesh</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check">
+                            <input className="form-check-input" type="checkbox" id="gridCheck" />
+                            <label className="form-check-label" for="gridCheck">
+                                Check me out
+                            </label>
+                        </div>
+                    </div>
+                    <label className="form-label" for="customFile">Upload image (Passport Size)</label>
+                    <input type="file" className="form-control" id="customFile" />
+
                 </div>
 
-
-
-                <div className='d-flex mb-3'>
-                    <div className="form-group col-md-6 me-1">
-                        <label for="fatherName">Father's Name</label>
-                        <input type="text" className="form-control" id="fName" name='fathername' placeholder="Father's Name" value={allValues.fathername.val} onChange={changeHandler} />
-                        {allValues.fathername.isValid && <small className='text-danger'>Invalid User Name</small>}
-                    </div>
-                    <div className="form-group col-md-6 ">
-                        <label for="MotherName">Mother's Name</label>
-                        <input type="text" className="form-control" id="MotherName" placeholder="Mother's Name" name='mothername' value={allValues.mothername.val} onChange={changeHandler} />
-                        {allValues.mothername.isValid && <small className='text-danger'>Invalid User Name</small>}
-                    </div>
+                <UploadImage />
                 </div>
-
-
-
-
-
-
-                <div className='d-flex mb-3'>
-                    <div className="form-group col-md-6 me-1">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" className="form-control" id="inputEmail4" name='email' placeholder="Email" value={allValues.email.val} onChange={changeHandler} />
-                        {allValues.email.isValid && <small className='text-danger'>Enter a valid email address</small>}
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" className="form-control" id="inputPassword4" name='password' placeholder="Password" value={allValues.password.val} onChange={changeHandler}/>
-                        {allValues.password.isValid && <small className='text-danger'>Must contain 8 characters consists of upperCase lowerCase numeric And special character</small>}
-
-                    </div>
-                </div>
-
-            </div>
-            <div className="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
-            </div>
-            <div className="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" className="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-            </div>
-            <div className="form-row">
-                <div className="form-group  d-flex">
-                    <div className='col-md-6'> <label for="inputCity">City</label>
-                        <input type="text" className="form-control" id="inputCity" /></div>
-                    <div className='col-md-6'>
-
-                        <label for="inputZip">Zip</label>
-                        <input type="text" className="form-control" id="inputZip" />
-                    </div>
-
-
-                </div>
-                <div className='d-flex '>
-
-                    <div className="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" className="form-control">
-                            <option selected>Select...</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Arunachal Pradesh</option>
-                            <option>Assam</option>
-                            <option>Bihae </option>
-                            <option>Chattisgarh Pradesh</option>
-                            <option>Goa</option>
-                            <option>gujarat</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-                            <option>Andhra Pradesh</option>
-
-                        </select>
-                    </div>
-
-                </div>
-            </div>
-            <div className="form-group">
-                <div className="form-check">
-                    <input className="form-check-input" type="checkbox" id="gridCheck" />
-                    <label className="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-<<<<<<< HEAD
-            <label className="form-label" for="customFile">Upload image (Passport Size)</label>
-            <input type="file" className="form-control" id="customFile" /> 
-        </form>
-=======
-          
-         <UploadImage/>
 
         </form>
 
         <button type="submit" className="btn btn-primary m-2" disabled={!allValues.fname || allValues.fname.length < 5 || !allValues.lname} onClick={Validate}>Create</button>
->>>>>>> 280f514eb45f6ff221e836648f0b04eb705ec3d3
 
 
     </>
