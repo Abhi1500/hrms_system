@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 import { Alert, Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Collapse, Popover, PopoverBody, PopoverHeader } from 'reactstrap';
+=======
+import {  Button} from 'reactstrap';
+>>>>>>> 280f514eb45f6ff221e836648f0b04eb705ec3d3
 import ModelComponent from './model';
 import PropTypes from 'prop-types';
 
