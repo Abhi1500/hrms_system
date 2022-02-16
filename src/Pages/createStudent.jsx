@@ -86,8 +86,13 @@ export default function CreateStudent() {
     }
     return (<>
         <form className='m-2 '>
+// <<<<<<< Ashish-StudentList
+          <div className="form-row ">
+                <div className='d-flex mb-3'> 
+// =======
             <div className="form-row ">
                 <div className='d-flex mb-3'>
+// >>>>>>> master
                     <div className="form-group col-md-6 me-1 d-flex flex-column">
                         <label for="fName">Name</label>
                         <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={changeHandler} />
@@ -196,12 +201,18 @@ export default function CreateStudent() {
                     </label>
                 </div>
             </div>
+// <<<<<<< Ashish-StudentList
+            <label className="form-label" for="customFile">Upload image (Passport Size)</label>
+            <input type="file" className="form-control" id="customFile" /> 
+        </form>
+// =======
           
          <UploadImage/>
 
         </form>
 
         <button type="submit" className="btn btn-primary m-2" disabled={!allValues.fname || allValues.fname.length < 5 || !allValues.lname} onClick={Validate}>Create</button>
+// >>>>>>> master
 
 
     </>
