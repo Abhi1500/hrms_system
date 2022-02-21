@@ -5,7 +5,7 @@ import Management from './Pages/Management/management';
 import Dashboard from './Common/Dashboard/dashboard';
 import Protected from './Pages/private/private'
 import Student from './Common/StudentList/Student';
-import CreateStudent from './Pages/createStudent';
+import CreateStudent from './Pages/createStudent/createStudent';
 
 export default function App() {
 
