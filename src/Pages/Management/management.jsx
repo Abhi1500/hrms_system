@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CardView from '../../Common/cardview';
-import { getUserList } from  './service'
+import {  getUserList, postLogin } from  './service'
 
 
 export default function Management() {

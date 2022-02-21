@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,8 +17,7 @@ export default function SignUpPage1() {
         e.preventDefault();
         axios.post( "https://fast-anchorage-32246.herokuapp.com/user/signup",{name,email,pass})
                  .then( response => {
-                  setEmail(response.data.data)
-                 
+                   setEmail(response.data)
                    console.log(response.data)
                  } )
                  .catch( error => {
@@ -34,78 +34,29 @@ export default function SignUpPage1() {
         // localStorage.setItem('userList', JSON.stringify(userListParsed))
         navi('/LoginPage');
     }
-   
-
-   
-
-
-   
-
-   
-
-
-
-
-
-
-
-
-
-    
-
-
-   
-    
-      
-
 
      
-    
-   
-  
-        
-     
-       
-     
-     
-       
-     
-         
-       
-
-
-
-   
     return (<>
         <div style={{backgroundColor:'#139487'}}>
-      
-               
            
-    
-    
+        <div className=' text-center display-5 p-4 '>SignUp</div>
 
-            <div className='d-flex container justify-content-center align-items-center w-100 vh-100 '>
-            <div className='container ' >
-                    <h2  className='text-center mb-4 '><b>Sign Up</b></h2>
-           
-           
-                
+            <div className='d-flex container justify-content-center align-items-center w-100 vh-100'>
             
             
 
-                <form className=' w-90 p-5 justifiy-content-center   d-flex flex-column ' style={{backgroundColor:'white'}}>
-                
+                <form className=' w-75 p-5  d-flex flex-column ' >
                
 
-                    <div class="col-sm-15  " >
+                    <div class="col-sm-15 " >
                         <div >
                             <label for="validationCustomUsername">Username</label>
-                            <div class="input-group  ">
+                            <div class="input-group ">
                                 <div class="input-group-prepend">
 
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-fill"></i></span>
                                 </div>
-                                <input type="text" class="form-control " name="username" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required value={userName} onChange={(e) => setUserName(e.target.value)} />
+                                <input type="text" class="form-control " id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required value={userName} onChange={(e) => setUserName(e.target.value)} />
 
                             </div>
                         </div>
@@ -115,7 +66,7 @@ export default function SignUpPage1() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-envelope-plus-fill"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="email" id="validationCustomUsername" placeholder="Email Address" aria-describedby="inputGroupPrepend" required />
+                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Email Address" aria-describedby="inputGroupPrepend" required />
                                 
                             </div>
                         </div>
@@ -125,7 +76,7 @@ export default function SignUpPage1() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-lock-fill"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="password" id="validationCustomUsername" placeholder="Password" aria-describedby="inputGroupPrepend" required value={pass} onChange={(e) => setPassword(e.target.value)} />
+                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Password" aria-describedby="inputGroupPrepend" required value={pass} onChange={(e) => setPassword(e.target.value)} />
                                
                             </div>
                         </div>
@@ -135,7 +86,7 @@ export default function SignUpPage1() {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-file-earmark-lock-fill"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="confirm-password" id="validationCustomUsername" placeholder="Confirm Password" aria-describedby="inputGroupPrepend" required />
+                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Confirm Password" aria-describedby="inputGroupPrepend" required />
                                 
                             </div>
                             <div className='mt-3' >
@@ -149,10 +100,8 @@ export default function SignUpPage1() {
                 </form>
 
             </div>
-            </div>
         </div>
         
     </>
     )
 }
-
