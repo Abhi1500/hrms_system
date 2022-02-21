@@ -86,6 +86,7 @@ export default function CreateStudent() {
     }
     return (<>
         <form className='m-2 '>
+
             <div className="form-row ">
                 <div className='d-flex mb-3'>
                     <div className="form-group col-md-6 me-1 d-flex flex-column">
@@ -196,12 +197,13 @@ export default function CreateStudent() {
                     </label>
                 </div>
             </div>
-          
+
          <UploadImage/>
 
         </form>
 
         <button type="submit" className="btn btn-primary m-2" disabled={!allValues.fname || allValues.fname.length < 5 || !allValues.lname} onClick={Validate}>Create</button>
+
 
 
     </>
