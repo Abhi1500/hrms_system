@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import image from '../../welcome/images/logo.png'
+// import image from '../../welcome/images/logo.png'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 
 export default function  Sidemenu() {
@@ -12,7 +12,7 @@ export default function  Sidemenu() {
                 <a href="#!">
                     <div className="flex items-center ">
                         <div className="shrink-0 mb-3">
-                            <img src={image} className="rounded-full " style={{width:'-webkit-fill-available'}} alt="Avatar" />
+                            {/* <img src={image} className="rounded-full " style={{width:'-webkit-fill-available'}} alt="Avatar" /> */}
                         </div>
                         
                     </div>
@@ -62,10 +62,6 @@ export default function  Sidemenu() {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-// <<<<<<< Ashish-StudentList
-// =======
-
-
 
 
                     <li className="relative my-3">
@@ -82,7 +78,7 @@ export default function  Sidemenu() {
                         </a>
                     </li>
 
-// >>>>>>> master
+
                 </li>
             </ul>
 
