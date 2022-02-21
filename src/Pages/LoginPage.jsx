@@ -4,8 +4,6 @@ import React from 'react'
 export default function LoginPage() {
     return (
         <>
-            {/* <div style={{ backgroundColor: 'purple', height: '100vh', padding: '50px' }}> */}
-
 
 <section className="vh-100">
   <div class="container-fluid h-100">
