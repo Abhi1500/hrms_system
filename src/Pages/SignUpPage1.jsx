@@ -1,4 +1,8 @@
 import React, {useEffect} from 'react'
+
+
+
+
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,15 +20,13 @@ export default function SignUpPage1() {
         e.preventDefault();
         axios.post( "https://fast-anchorage-32246.herokuapp.com/user/signup",{name,email,pass})
                  .then( response => {
-                  setEmail(response.data.data)
-                 
+
                    console.log(response.data)
                  } )
                  .catch( error => {
                       console.log("error",error)
                  } );
-
-        // const userList = localStorage.getItem('userList') || [];
+    // const userList = localStorage.getItem('userList') || [];
         // const userListParsed = typeof userList == 'string' ? JSON.parse(userList) : userList;
         // const newUser = {
         //      userName, pass
@@ -101,10 +103,15 @@ export default function SignUpPage1() {
                         <div >
                             <label for="validationCustomUsername">Username</label>
                             <div class="input-group  ">
-                                <div class="input-group-prepend">
+
+
+       
+   
+                     <div class="input-group-prepend">
 
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-fill"></i></span>
                                 </div>
+
                                 <input type="text" class="form-control " name="username" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required value={userName} onChange={(e) => setUserName(e.target.value)} />
 
                             </div>
@@ -143,6 +150,7 @@ export default function SignUpPage1() {
                                 <div className='mt-3 '>Already have an account? <a href='LoginPage'>Login here</a></div>
                             </div>
                         </div>
+
                     </div>
 
 
@@ -150,9 +158,8 @@ export default function SignUpPage1() {
 
             </div>
             </div>
-        </div>
-        
+            </div>
+
     </>
     )
 }
-

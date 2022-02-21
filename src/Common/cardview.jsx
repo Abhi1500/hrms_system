@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Alert, Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Collapse } from 'reactstrap';
+import { Alert, Button, Card, CardBody, CardHeader, CardSubtitle, CardText, CardTitle, Collapse, Popover, PopoverBody, PopoverHeader } from 'reactstrap';
+
 import ModelComponent from './model';
 import PropTypes from 'prop-types';
 
@@ -13,6 +14,7 @@ function CardView(props) {
   const details = props.details;
 
   const [toggalModel, setToggalModel] = useState(null);
+  const [popover, setPopover] = useState(false)
 
   const handleConfirm = () => {
     console.log(toggalModel);
@@ -25,7 +27,7 @@ function CardView(props) {
   return (<>
     <div className="max-w-sm rounded overflow-hidden shadow-lg my-4 m-auto d-flex  py-20 h-40" >
       <div style={{ width: '15%' }}>
-        <img className="w-sm" src={details.avatar} alt="Not Available" />
+        <img className="w-sm" src={details.avatar} style={{ width: '-webkit-fill-available' }} alt="Not Available" />
       </div>
       <div className="px-6 py-2 d-flex justify-content-lg-start" style={{ width: '40%', fontSize: '15px' }}>
         <div className="font-bold text-xl mb-2 " style={{ width: '65%', textAlign: 'left' }}>
@@ -37,7 +39,7 @@ function CardView(props) {
             <b>Current Session: </b>{details.current_session}<br />
             <b>Section alias: </b>{details.section_alias}<br />
 
-            
+
           </p>
 
         </div>
@@ -53,20 +55,32 @@ function CardView(props) {
       </div>
       <div className="px-6 pt-4 pb-2 d-flex" style={{ width: '45%' }}>
 
-        <div style={{width:'30%'}}>
-          <br/>
-          <Button color="primary" onClick={function noRefCheck() { }} style={{ marginBottom: '1rem' }} >
-            Fee Status
+        <div style={{ width: '30%' }}>
+          <br />
+          <Button
+            id="Popover1"
+            type="button"
+          >
+            Attendance
           </Button>
-        </div>
+          <Popover placement='bottom' flip target="Popover1" isOpen={popover} toggle={() => setPopover(!popover)} >
+            <PopoverHeader>
+              Attendance
+            </PopoverHeader>
+            <PopoverBody>
+              hello
+            </PopoverBody>
+          </Popover>
+        
+      </div>
 
-        <div style={{width:'70%',placeSelf:'flex-end'}}>
-        <button type="button" onClick={handleConfirm} class="btn btn-info">Info</button>&nbsp;
-          <button type="button" className="btn btn-success">Success</button>&nbsp;
-          <button type="button"  class="btn btn-danger">Danger</button>
-        </div>
+      <div style={{ width: '70%', placeSelf: 'flex-end' }}>
+        <button type="button" onClick={handleConfirm} class="btn btn-info">View More</button>&nbsp;
+        <button type="button" className="btn btn-success">Success</button>&nbsp;
+        <button type="button" class="btn btn-danger">Danger</button>
       </div>
     </div>
+  </div>
     {/* <Card className='mt-2'>
       <CardBody>
         <CardTitle tag="h5">
@@ -85,8 +99,8 @@ function CardView(props) {
         <Button onClick={handleConfirm}> Confirm </Button>
       </CardBody>
     </Card> */}
-    {/* Model Jsx Component */}
-    <ModelComponent toggleModel={toggalModel} details={details} />
+  {/* Model Jsx Component */ }
+  <ModelComponent toggleModel={toggalModel} details={details} />
   </>
   )
 }
