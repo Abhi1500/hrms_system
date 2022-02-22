@@ -1,10 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { HighlightButton } from './highlightButton';
 // import Inputbox from '../../Common/Inputbox';
 import UploadImage from './uploadImage';
-export default function CreateStudent() {
+export default function CreateStudent(props) {
+    // const hi = HighlightButton(allValues);
+    
+    const [alertShow, setalertShow] = useState('d-none');
     const [allValues, setAllValues] = useState({
-
+        avatar:{ val: "", isValid: false },
         lname: { val: "", isValid: false },
         fathername: { val: "", isValid: false },
         mothername: { val: "", isValid: false },
@@ -16,81 +20,63 @@ export default function CreateStudent() {
         State: { val: "", isValid: false }
 
     });
+    
+    const {highlightbtn} = HighlightButton(allValues);
     const formData = new FormData();
     
-
-
     const changeHandler = e => {
         const key = e.target.name;
         const val = e.target.value?.trim();
-        console.log(val)
         let isValid = true;
 
         switch (key) {
             case 'fname':
-                console.log(key, val?.length);
-
                 if (val?.length)
-                    isValid = false;
+                    isValid = false; 
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'lname':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
-
             case 'fathername':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'mothername':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'email':
-                console.log(key, val?.length);
-
                 if (val?.length && /\S+@\S+\.\S+/.test(val))
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'password':
-                console.log(key, val?.length);
-
-                if (val?.length && /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,32}$/.test(val))
+                if (val?.length && /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}$/.test(val))
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
-
             case 'address':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'address2':
-                console.log(key, val?.length);
-
                 if (val?.length)
-                    isValid = false;
+                    isValid = false;                    
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
             case 'State':
                 console.log(val, val?.length);
-
-                if (val?.length)
+                console.log('isValid 1',isValid)
+                if (val !== 'Select state'){
                 console.log('myval',val)
                     isValid = false;
+                    console.log('value',val ,'isValid',isValid)}
                 setAllValues({ ...allValues, [key]: { val, isValid } })
                 break;
                 
@@ -101,36 +87,40 @@ export default function CreateStudent() {
 
     }
 
-    // const Validate = () => {
+    
+    const handleUploadImage = (val ) => {
 
-
-    //     if (allValues.fname.length < 5) {
-
-    //         formErrors["studfNameErr"] = "First Name is required.";
-
-    //         console.log(formErrors)
-    //     }
-    //     if (!allValues.lname) {
-    //         formErrors["studlNameErr"] = "Last Name is required.";
-    //         console.log(formErrors)
-    //     }
-    // }
-
+      
+        console.log(val);
+        setAllValues((prev)=>({...prev,avatar:{val,isValid:true}}))
+    }
     const handleSubmit = async () => {
         formData.append('name', allValues.fname.val);
-        console.log(allValues.fname.val)
+        formData.append('avatar', allValues.avatar.val);
+        // console.log(allValues.fname.val)
         formData.append('father_name',allValues.fathername.val );
-        formData.append('mother',allValues.fathername.val );
+        formData.append('mother',allValues.mothername.val );
         formData.append('email',allValues.email.val )
-        console.log(JSON.stringify(formData)); 
-         const res = await axios.post('https://fathomless-beyond-85401.herokuapp.com/students/create', formData)
-         console.log(res);
+        if(!allValues.avatar.val){
+           alert('image is mandatory');
+           return;
+        }
+         const res = await axios.post('http://fast-anchorage-32246.herokuapp.com/students/create', formData)
+         .then((e)=>{
+             const res = e.data
+             console.log(res);
+             if(res.msg){
+                setalertShow('d-block')
+                setTimeout(() =>{ setalertShow('d-none')} , 1500);
+                 
+             }
+         }).catch((em)=>{
+            alert(em)
+         })
+
+      
     }
-    const handleUploadImage = (file) => {
-        
-        console.log(file);
-        formData.append('avatar', file);
-    }
+    
 
     return (<>
 
@@ -206,12 +196,12 @@ export default function CreateStudent() {
             </div>
             <div className="form-group ">
                 <label htmlFor="address">Address</label>
-                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" id="address" name='address' placeholder="Noida...." value={allValues.password.val} onChange={changeHandler} />
+                <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" id="address" name='address' placeholder="Noida...." value={allValues.address.val} onChange={changeHandler} />
                 {allValues.address.isValid && <small className='text-danger'>Address is required</small>}
             </div>
             <div className="form-group">
                 <label htmlFor="address2">Address 2</label>
-                <input type="text" className="form-control" id="address2" placeholder="sector 63..." id="address2" name='address2' placeholder="Noida...." value={allValues.password.val} onChange={changeHandler} />
+                <input type="text" className="form-control" id="address2" placeholder="sector 63..." id="address2" name='address2' placeholder="Noida...." value={allValues.address2.val} onChange={changeHandler} />
                 {allValues.address2.isValid && <small className='text-danger m-0' >Address 2 is required</small>}
             </div>
             <div className="form-row">
@@ -231,7 +221,7 @@ export default function CreateStudent() {
                     <div className="form-group col-md-6">
                         <label htmlFor="inputState">State</label>
                         <select id="inputState" className="form-control" name='State' id='State' value={allValues.State.val} onChange={changeHandler}>
-                            <option value=''>Select  state</option>
+                            <option>Select state</option>
                             <option >Andhra Pradesh</option>
                             <option>Arunachal Pradesh</option>
                             <option>Assam</option>
@@ -254,11 +244,11 @@ export default function CreateStudent() {
                             <option>Andhra Pradesh</option>
 
                         </select>
-                        
+                        {allValues.State.isValid && <small className='text-danger'>Please Select State.</small>}
                     </div>
 
-
-                    {allValues.State.isValid && <small className='text-danger'>Select is required</small>}
+                
+                    
                 </div>
             </div>
 
@@ -267,9 +257,12 @@ export default function CreateStudent() {
 
         </form>
 
-        <button type="submit" className="btn btn-primary m-2" onClick={handleSubmit} >Create</button>
+        <button type="submit" className="btn btn-primary m-2" disabled={highlightbtn.value} onClick={handleSubmit} >Create</button>
 
-
+        <div   className={`position-absolute h-150px ${alertShow}`} style={{ width:'500px',top:'30%',left:'25%',border:'2px solid green',textAlign:'center',paddingTop:'15px',backgroundColor:'green'}}>
+              successful
+       </div>
+      
     </>
 
     )

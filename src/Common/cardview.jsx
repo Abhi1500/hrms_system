@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from 'reactstrap';
 import ModelComponent from './collapse';
+
 import PropTypes from 'prop-types';
 import Attendance from '../Pages/Attendance/Attendance';
 import { Link } from 'react-router-dom';

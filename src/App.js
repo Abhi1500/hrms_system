@@ -8,6 +8,8 @@ import CreateStudent from './Pages/createStudent/createStudent';
 import LoginPage from './Pages/LoginPage';
 import SignUpPage1 from './Pages/SignUpPage1';
 import UpdateStudent from './Pages/updateStudent/updateStudent';
+// import Student from './Common/StudentList/Student';
+// =======
 
 export default function App(props) {
 
@@ -23,6 +25,7 @@ export default function App(props) {
         { path: 'updateStudent', element: <UpdateStudent /> },
       ]
     }
+    
   ])
   return routes;
 }
