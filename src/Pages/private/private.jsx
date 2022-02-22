@@ -5,7 +5,7 @@ export default function Private(props) {
     const navi = useNavigate();
 const page=props.page;
 
-const token=localStorage.getItem('token');
+const token=sessionStorage.getItem('token');
 // useEffect(() => {
 //   !token && navi('/loginPage');
 
