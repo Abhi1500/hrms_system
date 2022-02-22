@@ -133,7 +133,6 @@ export default function SignUpPage1() {
                 </div>
             </div>
         </div>
-
     </>
     )
 }

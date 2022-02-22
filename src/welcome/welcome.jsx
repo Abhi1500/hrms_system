@@ -2,12 +2,12 @@ import React  from 'react'
 import { Link } from 'react-router-dom'
 import './carousel.css'
 import Carousel from './carousel';
-import Chairman from './Images/chairman.jpg'
-import Principal from './Images/principal.png'
-import Vice_principal from './Images/vice_principal.jpg'
-import  Campus1 from './Images/campus1.jpg'
-import  Campus2 from './Images/campus2.jpg'
-import  Campus3 from './Images/campus3.jpg'
+import Chairman from './images/chairman.jpg'
+import Principal from './images/principal.png'
+import Vice_principal from './images/vice_principal.jpg'
+import  Campus1 from './images/campus1.jpg'
+import  Campus2 from './images/campus2.jpg'
+import  Campus3 from './images/campus3.jpg'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem,  } from 'reactstrap';
 
 export default function Welcome() {
@@ -20,16 +20,16 @@ export default function Welcome() {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"></a>
+          <div className="collapse navbar-collapse" id="navbarCollapse">
+            <ul className="navbar-nav me-auto mb-2 mb-md-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#"></a>
               </li>
             </ul>
             <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret >
-                    <form class="d-flex">
-              <button Link to='' class="btn btn-primary" >Register</button>
+                    <form className="d-flex">
+              <button Link to='' className="btn btn-primary" >Register</button>
             </form>
                     </DropdownToggle>
                     <DropdownMenu right >
@@ -54,10 +54,10 @@ export default function Welcome() {
      
       
 
-      <div class="container marketing">
+      <div className="container marketing">
 
-        <div class="row">
-          <div class="col-lg-4">
+        <div className="row">
+          <div className="col-lg-4">
               <img src={Chairman} style={{paddingLeft:'0px'}}/>
              <h2>Chairman</h2>
             <h4>Br. John Purackal S. J.</h4>B.Tech, M.Sc<p></p>
@@ -79,7 +79,7 @@ export default function Welcome() {
 
 
 
-        <hr class="featurette-divider" />
+        <hr className="featurette-divider" />
 
         <div class="row featurette">
           <div class="col-md-7">
@@ -91,7 +91,7 @@ export default function Welcome() {
           </div>
         </div>
 
-        <hr class="featurette-divider" />
+        <hr className="featurette-divider" />
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2" style={{ paddingLeft:'110px'}}>
@@ -103,7 +103,7 @@ export default function Welcome() {
           </div>
         </div>
 
-        <hr class="featurette-divider" />
+        <hr className="featurette-divider" />
 
         <div class="row featurette">
           <div class="col-md-7">
@@ -115,7 +115,7 @@ export default function Welcome() {
           </div>
         </div>
 
-        <hr class="featurette-divider" />
+        <hr className="featurette-divider" />
 
 
       </div>

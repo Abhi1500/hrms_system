@@ -17,8 +17,8 @@ export default function LoginPage() {
         setToken(res.token)
         console.log(token)
         if (res.token) {
-          navi('/dashboard')
           sessionStorage.setItem('token', token);
+          navi('/dashboard')
         }
         else {
           alert('invalid user')

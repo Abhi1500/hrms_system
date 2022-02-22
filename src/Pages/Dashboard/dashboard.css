@@ -11,7 +11,7 @@
 .sidemenu { grid-area: sidemenu; 
   display: flex;
   overflow-y: auto;
-  background-color: rgb(13 110 253 / 25%);
+  background-color: #7952b3;
 
   flex-direction: column;
   padding:50px 10px 10px 10px;
