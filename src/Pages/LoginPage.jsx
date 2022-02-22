@@ -2,43 +2,31 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios";
 
-
 export default function LoginPage() {
-
-
-
-  
-
-
   const [email, setEmail] = useState();
   const [token, setToken] = useState();
   const [password, setPassword] = useState();
-  // const [showAlert , setShowAter] = useState('d-none');
+
   const navi = useNavigate();
-
-
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    axios.post("https://fast-anchorage-32246.herokuapp.com/user/signin", { email, password })
+    axios.post("https://ea79-103-62-237-69.ngrok.io/user/signin", { email, password })
       .then(response => {
         const res = response.data.data
         console.log(res);
         setToken(res.token)
         console.log(token)
         if (res.token) {
-          navi('/u')
+          navi('/dashboard')
           sessionStorage.setItem('token', token);
         }
         else {
           alert('invalid user')
         }
-        
       })
       .catch(error => {
         console.log("error", error)
       });
-
-
 
   }
   return (
@@ -53,21 +41,16 @@ export default function LoginPage() {
             <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
               <div className='text-dark fs-2 mt-0 p-2'>LOGIN</div>
               <form className='d-flex flex-column p-2'>
-
-
                 <div className="form-outline mb-4 ">
                   <label className="form-label" htmlFor="form3Example3">Email address</label>
                   <input type="email" id="email" name='email' className="form-control form-control-lg"
                     placeholder="Enter a valid email address" value={email} onChange={(e) => setEmail(e.target.value)} />
 
                 </div>
-
-
                 <div className="form-outline mb-3 ">
                   <label className="form-label" htmlFor="form3Example4">Password</label>
                   <input type="password" id="form3Example4" className="form-control form-control-lg"
                     placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
-
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center">
@@ -94,11 +77,6 @@ export default function LoginPage() {
         </div>
 
       </section>
-
-
-
-
-
 
     </>
   )
