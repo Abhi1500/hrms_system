@@ -2,12 +2,12 @@ import React  from 'react'
 import { Link } from 'react-router-dom'
 import './carousel.css'
 import Carousel from './carousel';
-import Chairman from './Images/chairman.jpg'
-import Principal from './Images/principal.png'
-import Vice_principal from './Images/vice_principal.jpg'
-import  Campus1 from './Images/campus1.jpg'
-import  Campus2 from './Images/campus2.jpg'
-import  Campus3 from './Images/campus3.jpg'
+import Chairman from './images/chairman.jpg'
+import Principal from './images/principal.png'
+import Vice_principal from './images/vice_principal.jpg'
+import  Campus1 from './images/campus1.jpg'
+import  Campus2 from './images/campus2.jpg'
+import  Campus3 from './images/campus3.jpg'
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem,  } from 'reactstrap';
 
 export default function Welcome() {
