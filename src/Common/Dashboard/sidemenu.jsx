@@ -21,14 +21,14 @@ export default function  Sidemenu() {
             </div>
             <ul className="relative px-1 ">
                 <li className="relative my-3">
-                <button type="button" class="btn btn-secondary" style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }}><i class="bi bi-speedometer2"style={{color:'black',fontSize:'20px'}}></i>  Dashboard</button>
+                <button type="button" className="btn btn-secondary" style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }}><i className="bi bi-speedometer2"style={{color:'black',fontSize:'20px'}}></i>  Dashboard</button>
 
                 </li>
                 <li className="relative my-3" id="sidenavSecEx2">
                     <div className="d-flex justify-content-center ">
                         <Dropdown outline color="primary" isOpen={viewteacherstList} toggle={() => setViewteacherstList(!viewteacherstList)} >
                             <DropdownToggle caret style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }} >
-                            <i class="bi bi-person-circle"style={{color:'black',fontSize:'20px'}}></i>  Teachers
+                            <i className="bi bi-person-circle"style={{color:'black',fontSize:'20px'}}></i>  Teachers
                             </DropdownToggle>
                             <DropdownMenu
                             >
@@ -47,7 +47,7 @@ export default function  Sidemenu() {
                     <div className="d-flex justify-content-center ">
                         <Dropdown outline color="primary" isOpen={viewstudentList} toggle={() => setViewstudentList(!viewstudentList)} >
                             <DropdownToggle caret style={{ backgroundColor: '#0dcaf0', border: 'none', color: 'white' }} >
-                            <b><i class="bi bi-people-fill"style={{color:'black',fontSize:'20px'}}></i></b>  Students
+                            <b><i className="bi bi-people-fill"style={{color:'black',fontSize:'20px'}}></i></b>  Students
                             </DropdownToggle>
                             <DropdownMenu
                             >
