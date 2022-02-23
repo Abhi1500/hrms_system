@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CardView from '../../Common/cardview';
-import {  getUserList, postLogin } from  './service'
+import {  getUserList } from  './service'
 
 
 export default function Management() {
@@ -8,7 +8,7 @@ export default function Management() {
 
   useEffect(() => {
     fetchUserList();
-  }, [])
+  }, )
 //  <ModelComponent />
   const fetchUserList = async() => {
     const { data } = await getUserList();
