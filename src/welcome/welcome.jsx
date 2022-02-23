@@ -2,7 +2,7 @@ import React  from 'react'
 import { Link } from 'react-router-dom'
 import './carousel.css'
 import Carousel from './carousel';
-import Chairman from './images/chairman.jpg'
+import Chairman from './images/ashish.jpeg'
 import Principal from './images/principal.png'
 import Vice_principal from './images/vice_principal.jpg'
 import  Campus1 from './images/campus1.jpg'
@@ -60,8 +60,8 @@ export default function Welcome() {
           <div className="col-lg-4">
               <img src={Chairman} style={{paddingLeft:'0px'}}/>
              <h2>Chairman</h2>
-            <h4>Br. John Purackal S. J.</h4>B.Tech, M.Sc<p></p>
-            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            <h4>Er. Ashish Diwedi</h4>B.Tech, M.Sc<p></p>
+            <p><a className="btn btn-secondary" href="#">View details &raquo;</a></p>
           </div>
           <div class="col-lg-4">
           <img src={Principal} />
