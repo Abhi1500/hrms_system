@@ -9,7 +9,7 @@ export default function Form(props) {
         console.log(val);
         props.setval({ ...allValues, avatar: { val, isValid: true } })
     }
-    console.log(allValues.avatar);
+
     return (<>
         <div className='d-flex w-100 justify-content-center '> <b style={{ fontSize: '20px', textDecorationLine: 'underline' }}>STUDENT DETAIL'S :</b> </div>
         <form className='m-4 '>

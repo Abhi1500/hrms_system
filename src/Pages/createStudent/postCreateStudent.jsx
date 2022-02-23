@@ -1,47 +1,69 @@
 import React from 'react'
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import {Spinner} from 'reactstrap'
+import { useState } from 'react'
 import { Button, Modal, ModalFooter } from 'reactstrap';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 export default function PostCreateStudent(props) {
     let allValues = props.allValue;
     let data = props.HighlightButton;
-    console.log(allValues.fathername.val);
+    
+    const [btnDisplay, setbtnDisplay] = useState('d-block')
+    const [loader, setloader] = useState('d-none')
     const [toggle, settoggle] = useState(false)
     const formData = new FormData();
    const navi = useNavigate();
     const handleSubmit = async () => {
-        formData.append('name', allValues.fname.val);
-        formData.append('avatar',allValues.avatar.val);
-       
-        formData.append('father_name', allValues.fathername.val);
-        formData.append('mother', allValues.mothername.val);
-        formData.append('email', allValues.email.val)
-        if (!allValues.avatar.val) {
-            alert('image is mandatory');
-            return;
-        }
-        // 'http://fast-anchorage-32246.herokuapp.com/students/create'
-        await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
-            .then((e) => {
-                const res = e.data
-                console.log(res);
-                if (res.msg) {
-                    settoggle(!toggle)
-                }
-            }).catch((e) => {
-                alert(e)
-            })
+        setbtnDisplay('d-none')
+        setloader('d-block')
+         setTimeout( async() => {
+            formData.append('name', allValues.fname.val);
+            formData.append('avatar',allValues.avatar.val);
+           
+            formData.append('father_name', allValues.fathername.val);
+            formData.append('mother', allValues.mothername.val);
+            formData.append('email', allValues.email.val)
+            if (!allValues.avatar.val) {
+                setbtnDisplay('d-block')
+                setloader('d-none')
+                setTimeout(() => {
+                    alert('image is mandatory');
+                },);              
+                return;
+            }
+            await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
+                .then((e) => {
+                    const res = e.data
+                    console.log(res);
+                    if (res.msg) { 
+                        setloader('d-none')  
+                        settoggle(!toggle)
+                    }
+                }).catch((e) => {
+                    alert(e)
+                })
+        });       
     }
     return (
         <>
-            <div>
-                <Button
-                    color="primary" className='m-2' disabled={data.highlightbtn}
+            <div className='d-flex justify-content-center'>
+                <Button className={`m-2 ${btnDisplay }`}
+                    color="primary"  disabled={data.highlightbtn}
                     onClick={handleSubmit}>
                     Create
                 </Button>
-                <Modal
+                <Button   className={`m-2 ${loader} bg-primary`} disabled>
+                    <Spinner                   
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                    />
+                    Adding Student...
+                </Button>
+                
+            </div>
+            <Modal
                     isOpen={toggle} className='border border-4 border-success rounded-3' >
                     <div className={` w-100 h-100   d-flex justify-content-center align-items-center flex-column `}
                         style={{
@@ -55,11 +77,10 @@ export default function PostCreateStudent(props) {
                         <p className='text-success h5'>Student added successfully</p>
                     </div>
                     <ModalFooter>
-                        <Button onClick={() => {settoggle(!toggle) ; navi('/student')}}>
-                            OK
+                        <Button onClick={() => {settoggle(!toggle) ; navi('/dashboard/student') }}>
+                         OK
                         </Button>
                     </ModalFooter>
                 </Modal>
-            </div>
         </>)
 }

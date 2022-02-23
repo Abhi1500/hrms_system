@@ -1,9 +1,6 @@
 import Form from './form';
 import React, { useEffect, useState } from 'react'
 import { HighlightButton } from './highlightButton';
-
-// import Inputbox from '../../Common/Inputbox';
-
 import PostCreateStudent from './postCreateStudent';
 export default function CreateStudent() {
     const [allValues, setAllValues] = useState({
@@ -19,14 +16,11 @@ export default function CreateStudent() {
         address: { val: "", isValid: false },
         address2: { val: "", isValid: false },
         State: { val: "", isValid: false }
-
     });
-
     const data = HighlightButton(allValues);
-
     const changeHandler = e => {
         const key = e.target.name;
-        const val = e.target.value?.trim();
+        const val = e.target.value;
         let isValid = true;
 
         switch (key) {
@@ -99,8 +93,6 @@ export default function CreateStudent() {
 
 
     }
-
-  
     return (<>
         <Form allValues={allValues} event={changeHandler} setval = {setAllValues}/>
         <PostCreateStudent allValue={allValues}  HighlightButton={data} />
