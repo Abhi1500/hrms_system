@@ -21,7 +21,7 @@ export default function PostCreateStudent(props) {
             alert('image is mandatory');
             return;
         }
-        await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
+        await axios.post('https://797b-103-62-237-69.ngrok.io/students/create', formData)
             .then((e) => {
                 const res = e.data
                 console.log(res);
