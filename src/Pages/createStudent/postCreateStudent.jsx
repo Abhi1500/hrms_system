@@ -2,14 +2,14 @@ import React from 'react'
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { Button, Modal, ModalFooter } from 'reactstrap';
-
+import {useNavigate} from 'react-router-dom'
 export default function PostCreateStudent(props) {
     let allValues = props.allValue;
     let data = props.HighlightButton;
     console.log(allValues.fathername.val);
     const [toggle, settoggle] = useState(false)
     const formData = new FormData();
-
+   const navi = useNavigate();
     const handleSubmit = async () => {
         formData.append('name', allValues.fname.val);
         formData.append('avatar',allValues.avatar.val);
@@ -22,7 +22,7 @@ export default function PostCreateStudent(props) {
             return;
         }
         // 'http://fast-anchorage-32246.herokuapp.com/students/create'
-        await axios.post('https://ea79-103-62-237-69.ngrok.io/students/create', formData)
+        await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
             .then((e) => {
                 const res = e.data
                 console.log(res);
@@ -55,7 +55,7 @@ export default function PostCreateStudent(props) {
                         <p className='text-success h5'>Student added successfully</p>
                     </div>
                     <ModalFooter>
-                        <Button onClick={() => { settoggle(!toggle) }}>
+                        <Button onClick={() => {settoggle(!toggle) ; navi('/student')}}>
                             OK
                         </Button>
                     </ModalFooter>
