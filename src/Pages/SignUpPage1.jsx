@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function SignUpPage1() {
-    const [Popup, setPopup] = useState('d-none')
+   const [Popup, setPopup] = useState('d-none')
     const [allvalues, setAllvalues] = useState({
         username: { val: '', isValid: false },
         email: { val: '', isValid: false },
@@ -61,8 +61,8 @@ export default function SignUpPage1() {
         let n1 = allvalues.username.val
         let n2 = allvalues.email.val
         let n3 = allvalues.password.val
-        const res = await axios.post("https://0121-103-62-237-69.ngrok.io/user/signup", { name: n1, email: n2, password: n3 })
-            .then(response => {
+        const res = await axios.post("https://797b-103-62-237-69.ngrok.io/user/signup", { name: n1, email: n2, password: n3 })
+       .then(response => {
                 let res = response.data;
                 console.log(res)
                 setPopup('d-block')

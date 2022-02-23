@@ -1,23 +1,27 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap'
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Spinner } from 'reactstrap'
 
 export default function Modalalert(props) {
     let details = props.details
     const [toggalAlert, settoggalAlert] = useState(false);
+    const [loader, setLoader] = useState('d-block')
+    const [loaderdisplay, setLoaderdisplay] = useState('d-none')
     useEffect(() => {
         (props.toggleAlert != null) &&
             settoggalAlert(!toggalAlert);
         // console.log(toggalAlert);
     }, [props.toggleAlert])
 
-    const DeleteUser = (id, e) => {
-        // axios.delete(`https://fathomless-beyond-85401.herokuapp.com/students/delete?${id}`)
-        // axios.delete(`https://reqres.in/api/users/2`)
-        // axios.delete(`http://fast-anchorage-32246.herokuapp.com/students/delete?${id}`)
-        axios.delete(`https://0121-103-62-237-69.ngrok.io/students/delete?${id}`)
+    const DeleteUser = async (id, e) => {
+        setLoader('d-none')
+        setLoaderdisplay('d-block')
+        // console.log(loader);
+        await axios.delete(`https://797b-103-62-237-69.ngrok.io/students/delete?${id}`)
             .then((res) => {
                 props.fetchUserList()
+                // setLoader(!loader)
+                // console.log(loader);
                 settoggalAlert(!toggalAlert)
                 console.log('deleted', res)
             })
@@ -28,20 +32,31 @@ export default function Modalalert(props) {
         <div>
             <Modal isOpen={toggalAlert} toggle={() => settoggalAlert(!toggalAlert)}  >
                 <ModalHeader toggle={() => settoggalAlert(!toggalAlert)} >
-                   <b>Do You Want To Delete it Really?</b>
+                    <b>Do You Want To Delete it Really?</b>
                 </ModalHeader>
                 <ModalBody>
-                    <b>Id:</b>{props.details.id}<br/>
+                    <b>Id:</b>{props.details.id}<br />
                     <b>Name:</b>{props.details.name}
                 </ModalBody>
                 <ModalFooter>
-                    <Button
+                    <Button className={`${loader}`}
                         color="danger"
                         onClick={(e) => DeleteUser(details.id, e)}
                     >
                         YES
                     </Button>
-                    
+                    <Button className={`${loaderdisplay}`}
+                        color="secondary"
+
+                    >
+                        <Spinner
+                            color="danger"
+                            type="border"
+                        >
+                            Loading...
+                        </Spinner>
+                    </Button>
+
                     <Button onClick={() => settoggalAlert(!toggalAlert)} >
                         NO
                     </Button>
