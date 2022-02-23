@@ -66,7 +66,7 @@ export default function SignUpPage1() {
     const handleSubmit = async (e) => {
         e.preventDefault();
        
-        await axios.post('https://ea79-103-62-237-69.ngrok.io/user/signup', {name,email,password})
+        await axios.post('https://0121-103-62-237-69.ngrok.io/user/signup', {name,email,password})
         .then(response=>{
             console.log('dddd',response.data)})
         .catch(err=>{console.log(err)})
