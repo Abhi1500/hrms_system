@@ -1,21 +1,31 @@
 import React from 'react';
-// import ModelComponent from './Common/model';
 import { useRoutes } from 'react-router-dom';
 import Management from './Pages/Management/management';
-import Dashboard from './Common/Dashboard/dashboard';
+import Dashboard from './Pages/Dashboard/dashboard';
 import Protected from './Pages/private/private'
-
+import Welcome from './welcome/welcome';
+import CreateStudent from './Pages/createStudent/createStudent';
+import LoginPage from './Pages/LoginPage';
+import SignUpPage1 from './Pages/SignUpPage1';
+import UpdateStudent from './Pages/updateStudent/updateStudent';
 // import Student from './Common/StudentList/Student';
 // =======
-import Student from './Common/StudentList/Student';
-import CreateStudent from './Pages/createStudent/createStudent';
 
-export default function App() {
+export default function App(props) {
 
   const routes = useRoutes([
-    { path:'/wed', element: <Management/> },
-    { path:'/', element: <Protected page={<Dashboard />} />, children: [
-      { path: 'student', element: <Management /> },{ path: '', element: <CreateStudent /> }] }
+
+    { path: '/', element: <Welcome /> },
+    { path: '/loginPage', element: <LoginPage /> },
+    { path: '/signUpPage1', element: <SignUpPage1 /> },
+    {
+      path: '/dashboard', element: <Protected page={<Dashboard />} />, children: [
+        { path: 'student', element: <Management /> },
+        { path: 'createStudent', element: <CreateStudent /> },
+        { path: 'updateStudent', element: <UpdateStudent /> },
+      ]
+    }
+    
   ])
-return routes;
+  return routes;
 }

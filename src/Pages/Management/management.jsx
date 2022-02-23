@@ -19,7 +19,7 @@ export default function Management() {
 
   return (
     <div className='p-4'>
-       { result.map((details, i)=> <CardView key={i} details={details}  /> ) }
+       { result.map((details, i)=> <CardView key={i} details={details} fetchUserList={fetchUserList}  /> ) }
     </div>
   )
 }
