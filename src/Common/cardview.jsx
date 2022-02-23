@@ -67,7 +67,7 @@ function CardView(props) {
         </div>
         <div style={{ width: '70%', placeSelf: 'flex-end' }}>
           <button type="button" onClick={handleConfirm} className="btn btn-info">View More</button>&nbsp;
-          <button type="button" className="btn btn-success" ><Link state={{ details }} to="../updateStudent" details={details}>Update</Link></button>&nbsp;
+          <button type="button" className="btn btn-success" ><Link state={{ details }} style={{textDecoration:'none',color:'black'}} to="../updateStudent" >Update</Link></button>&nbsp;
           <button type="button" className="btn btn-danger" onClick={(e) => DeleteUser(details.id, e)}>Delete</button>
         </div>
       </div>

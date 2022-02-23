@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal, ModalBody, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap';
+import { Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap';
 
 export default function ModelComponent(props) {
     const { details = {} } = props;

@@ -5,13 +5,14 @@
     font-family: sans-serif;
   }
 .header { grid-area: header;
-    background-color: rgb(31, 146, 146);
 
      }
 .sidemenu { grid-area: sidemenu; 
   display: flex;
   overflow-y: auto;
-  background-color: #7952b3;
+  background-color: #ffffff;
+  text-align: left;
+
 
   flex-direction: column;
   padding:50px 10px 10px 10px;
@@ -27,7 +28,7 @@
 .grid-container {
  display: grid;
  position: fixed;
- grid-template-columns: 15% 85% ;
+ grid-template-columns: 20% 80% ;
  grid-template-rows: 10% 90%;
  grid-template-areas:
    'sidemenu header'
@@ -45,7 +46,7 @@ width: 100%;
 
 .grid-container div {
 
- text-align: center;
+ /* text-align: center; */
  padding: 1px;
  
  
