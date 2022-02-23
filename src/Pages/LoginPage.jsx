@@ -67,7 +67,7 @@ export default function LoginPage() {
                 <div className="text-center text-lg-start mt-4 pt-2">
                   <button type="button" onClick={onSubmitLogin} className="btn btn-primary btn-lg"
                   >Login</button>
-                  <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                  <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="SignUpPage1"
                     className="link-danger">Register</a></p>
                 </div>
 

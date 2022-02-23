@@ -15,7 +15,7 @@ export default function Modalalert(props) {
         // axios.delete(`https://fathomless-beyond-85401.herokuapp.com/students/delete?${id}`)
         // axios.delete(`https://reqres.in/api/users/2`)
         // axios.delete(`http://fast-anchorage-32246.herokuapp.com/students/delete?${id}`)
-        axios.delete(`https://ea79-103-62-237-69.ngrok.io/students/delete?${id}`)
+        axios.delete(`https://0121-103-62-237-69.ngrok.io/students/delete?${id}`)
             .then((res) => {
                 props.fetchUserList()
                 settoggalAlert(!toggalAlert)

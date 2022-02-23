@@ -40,6 +40,7 @@ export default function PostCreateStudent(props) {
                     onClick={handleSubmit}>
                     Create
                 </Button>
+                
                 <Modal
                     isOpen={toggle} className='border border-4 border-success rounded-3' >
                     <div className={` w-100 h-100   d-flex justify-content-center align-items-center flex-column `}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function SignUpPage1() {
+    const [Popup, setPopup] = useState('d-none')
     const [allvalues, setAllvalues] = useState({
         username: { val: '', isValid: false },
         email: { val: '', isValid: false },
@@ -49,10 +50,13 @@ export default function SignUpPage1() {
             default:
                 break;
         };
+
     }
+
     const navi = useNavigate();
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         let n1 = allvalues.username.val
         let n2 = allvalues.email.val
@@ -60,22 +64,18 @@ export default function SignUpPage1() {
         const res = await axios.post("https://0121-103-62-237-69.ngrok.io/user/signup", { name: n1, email: n2, password: n3 })
             .then(response => {
                 let res = response.data;
-
                 console.log(res)
-                navi('/LoginPage');
+                setPopup('d-block')
+                setTimeout(() => {
+                    navi('/LoginPage');
+                }, 1500);
 
             })
             .catch(error => {
                 console.log("error", error)
-             
+
             });
-          
-           
-        
-        
     }
-   
-    
     return (<>
         <div style={{ backgroundColor: '#139487' }}>
 
@@ -130,16 +130,23 @@ export default function SignUpPage1() {
 
                                 </div>
                                 <div className='mt-3' >
+
                                     <button class="btn btn-primary" type="submit" onClick={handleSubmit}><b>Sign Up</b></button>
                                     <div className='mt-3 '>Already have an account? <a href='LoginPage'>Login here</a></div>
+
+
                                 </div>
                             </div>
                         </div>
                     </form>
 
+
                 </div>
             </div>
         </div>
+        <div className={`position-absolute ${Popup} d-flex justify-content-center align-items-center  w-25 border  bg-white`} style={{ top: '10px', height: '80px', left: '37%', color: 'green', fontSize: '20px' }}>SignUp Successfull<i class="bi bi-check-circle"></i></div>
+
     </>
     )
+
 }
