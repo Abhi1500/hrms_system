@@ -31,7 +31,7 @@ export default function PostCreateStudent(props) {
                 },);              
                 return;
             }
-            await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
+            await axios.post('https://797b-103-62-237-69.ngrok.io/students/create', formData)
                 .then((e) => {
                     const res = e.data
                     console.log(res);
@@ -40,6 +40,8 @@ export default function PostCreateStudent(props) {
                         settoggle(!toggle)
                     }
                 }).catch((e) => {
+                    setloader('d-none')  
+                    setbtnDisplay('d-block')  
                     alert(e)
                 })
         });       
@@ -48,7 +50,7 @@ export default function PostCreateStudent(props) {
         <>
             <div className='d-flex justify-content-center'>
                 <Button className={`m-2 ${btnDisplay }`}
-                    color="primary"  disabled={data.highlightbtn}
+                    color="primary"  disabled={false}
                     onClick={handleSubmit}>
                     Create
                 </Button>

@@ -8,8 +8,8 @@ import CreateStudent from './Pages/createStudent/createStudent';
 import LoginPage from './Pages/LoginPage';
 import SignUpPage1 from './Pages/SignUpPage1';
 import UpdateStudent from './Pages/updateStudent/updateStudent';
-// import Student from './Common/StudentList/Student';
-// =======
+import Maincontent from './Pages/mainContent/mainContent';
+
 
 export default function App(props) {
 
@@ -20,6 +20,7 @@ export default function App(props) {
     { path: '/signUpPage1', element: <SignUpPage1 /> },
     {
       path: '/dashboard', element: <Protected page={<Dashboard />} />, children: [
+        { path: '', element: <Maincontent /> },
         { path: 'student', element: <Management /> },
         { path: 'createStudent', element: <CreateStudent /> },
         { path: 'updateStudent', element: <UpdateStudent /> },

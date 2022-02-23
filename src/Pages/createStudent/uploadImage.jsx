@@ -7,6 +7,7 @@ export default function UploadImage(props) {
   const fileTypes = ['image/png', 'image/jpeg'];
   const handleimgPreview = (e) => {
     let selected = e.target.files[0];
+    console.log(e.target.files);
     console.log('hiii', selected.name);
     if (selected.name) {
       if (selected.name && fileTypes.includes(selected.type)) {

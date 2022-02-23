@@ -8,7 +8,7 @@ export default function Management() {
 
   useEffect(() => {
     fetchUserList();
-  }, [])
+  })
 //  <ModelComponent />
   const fetchUserList = async() => {
     const { data } = await getUserList();
