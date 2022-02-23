@@ -21,8 +21,7 @@ export default function PostCreateStudent(props) {
             alert('image is mandatory');
             return;
         }
-        // 'http://fast-anchorage-32246.herokuapp.com/students/create'
-        await axios.post('https://ea79-103-62-237-69.ngrok.io/students/create', formData)
+        await axios.post('https://0121-103-62-237-69.ngrok.io/students/create', formData)
             .then((e) => {
                 const res = e.data
                 console.log(res);

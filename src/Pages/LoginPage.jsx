@@ -10,7 +10,7 @@ export default function LoginPage() {
   const navi = useNavigate();
   const onSubmitLogin = (e) => {
     e.preventDefault();
-    axios.post("https://ea79-103-62-237-69.ngrok.io/user/signin", { email, password })
+    axios.post("https://0121-103-62-237-69.ngrok.io/user/signin", { email, password })
       .then(response => {
         const res = response.data.data
         console.log(res);
