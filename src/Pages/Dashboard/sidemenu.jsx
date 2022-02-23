@@ -14,7 +14,7 @@ export default function Sidemenu() {
                     <ul className="navbar-nav " >
                     <hr/>
                     <li className="nav-item">
-                            <a className="nav-link">&nbsp;&nbsp;<i className="bi bi-window-dash" style={{ color: 'black', fontSize: '20px' }}></i>  Dashboard</a>
+                            <Link className="nav-link" to='../dashboard'>&nbsp;&nbsp;<i className="bi bi-window-dash" style={{ color: 'black', fontSize: '20px' }}></i>  Dashboard</Link>
                         </li><hr/>
                         <li className="nav-item">
                             <a className="nav-link" >
@@ -40,7 +40,7 @@ export default function Sidemenu() {
 
             </nav>
         </>
-       
+        
     )
 }
 
