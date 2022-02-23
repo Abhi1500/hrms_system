@@ -1,16 +1,10 @@
 import React, { useState,useEffect } from 'react'
 import  axios  from 'axios';
 
-
-
-
 export default function SignUpPage1() {
-
-    // const formData = new FormData();
     const [name, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
-
     const [allvalues, setAllvalues] = useState({
         username: { val: '', isValid: false },
         email: { val: '', isValid: false },
@@ -20,21 +14,15 @@ export default function SignUpPage1() {
     const changeHandler = e => {
         let key = e.target.name;
         let val = e.target.value?.trim();
-        console.log(val)
         let isValid = true;
-
         switch (key) {
             case 'username':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setUsername(val)
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
                 break;
             case 'email':
-                console.log(key, val?.length);
-
                 if (val?.length && /\S+@\S+\.\S+/.test(val))
                     isValid = false;
                 setEmail(val)
@@ -47,35 +35,24 @@ export default function SignUpPage1() {
                 setPassword(val)
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
                 break;
-
-                break;
             case 'confirmpassword':
-                console.log(key, val?.length);
-
                 if (val?.length && val === allvalues.password.val)
                     isValid = false;
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
-                console.log('jjjj', isValid);
                 break;
             default:
                 break;
         };
     }
-
-
     const handleSubmit = async (e) => {
-        e.preventDefault();
-       
-        await axios.post('https://ea79-103-62-237-69.ngrok.io/user/signup', {name,email,password})
+        e.preventDefault();    
+        await axios.post('https://0121-103-62-237-69.ngrok.io/user/signup', {name,email,password})
         .then(response=>{
             console.log('dddd',response.data)})
         .catch(err=>{console.log(err)})
-        // console.log(res);
     }
-
     return (<>
         <div style={{ backgroundColor: '#139487' }}>
-
             <div className=' text-center display-5 p-4 '>SignUp</div>
             <div className='d-flex container justify-content-center align-items-center w-100 vh-100'>
                 <form className=' w-75 p-5  d-flex flex-column ' >
