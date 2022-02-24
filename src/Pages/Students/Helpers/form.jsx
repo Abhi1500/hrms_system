@@ -1,15 +1,25 @@
-import React from 'react'
-import UploadImage from './uploadImage';
+import React, { useEffect } from 'react'
+import UploadImage from '../../../Common/uploadImage';
 
 export default function Form(props) {
+    let avatar = props.avatar
+
     let allValues = props.allValues
+    console.log(allValues.avatar.val);
     let changeHandler = props.event;
 
     const handleUploadImage = (val) => {
         console.log(val);
         props.setval({ ...allValues, avatar: { val, isValid: true } })
     }
-    console.log(allValues.avatar);
+
+    
+    // useEffect(() => {
+    //     if (avatar)
+    //       props.setval({ ...allValues, avatar: { val:avatar}})
+    //       // console.log(imgPreview);
+    //   }, [props.avatar])
+
     return (<>
         <div className='d-flex w-100 justify-content-center '> <b style={{ fontSize: '20px', textDecorationLine: 'underline' }}>STUDENT DETAIL'S :</b> </div>
         <form className='m-4 '>
@@ -18,27 +28,27 @@ export default function Form(props) {
                     <div className='d-flex flex-column mb-3 w-100 h-25  justify-content-between'>
                         <div className="form-group col-md-12 mb-3 d-flex flex-column">
                             <label htmlFor="fName" className='text-start'>Name</label>
-                            <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={changeHandler} />
+                            <input type="text" className="form-control" id="fName" name='fname' placeholder="First Name" value={allValues.fname.val} onChange={props.event} />
                             {allValues.fname.isValid && <small className='text-danger'>Invalid User Name</small>}
 
                         </div>
                         <div className="form-group col-md-12 mb-3 d-flex flex-column">
                             <label htmlFor="lName" className='text-start'>Last Name</label>
-                            <input type="text" className="form-control" id="lName" name='lname' placeholder="Last Name" value={allValues.lname.val} onChange={changeHandler} />
+                            <input type="text" className="form-control" id="lName" name='lname' placeholder="Last Name" value={allValues.lname.val} onChange={props.event} />
                             {allValues.lname.isValid && <small className='text-danger'>Invalid User Name</small>}
                         </div>
                         <div className="form-group col-md-12 mb-3 d-flex flex-column">
                             <label htmlFor="fatherName" className='text-start'>Father's Name</label>
                             <input type="text" className="form-control" id="fatherName" name='fathername' placeholder="Father's Name" value={allValues.fathername.val} onChange={changeHandler} />
-                            {allValues.fathername.isValid && <small className='text-danger'>Invalid User Name</small>}
+                            {allValues.fathername.isValid && <small className='text-danger'>Invalid Father Name</small>}
                         </div>
                         <div className="form-group col-md-12 d-flex flex-column ">
                             <label htmlFor="MotherName" className='text-start'>Mother's Name</label>
                             <input type="text" className="form-control" id="MotherName" placeholder="Mother's Name" name='mothername' value={allValues.mothername.val} onChange={changeHandler} />
-                            {allValues.mothername.isValid && <small className='text-danger'>Invalid User Name</small>}
+                            {allValues.mothername.isValid && <small className='text-danger'>Invalid Mother Name</small>}
                         </div>
                     </div>
-                    <UploadImage handleUpload={handleUploadImage} />
+                    <UploadImage handleUpload={props.handleUploadImage}  avatar={avatar}/>
                 </div>
                 {/* 
               <Inputbox

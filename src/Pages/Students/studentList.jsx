@@ -3,19 +3,26 @@ import CardView from '../../Common/cardview';
 import {  getUserList } from  './service'
 
 
+
+
 export default function Management() {
   const [result, setResult] = useState([])  
 
   useEffect(() => {
-    fetchUserList();
-  }, )
-//  <ModelComponent />
+    
+      
+      fetchUserList();
+   
+    console.log('fetchUserList');
+  },[] )
+
+
+
   const fetchUserList = async() => {
     const { data } = await getUserList();
+    console.log(data.data);
     setResult(data.data);
   }
-  
-
 
   return (
     <div className='p-4'>

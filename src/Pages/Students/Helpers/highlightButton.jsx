@@ -1,5 +1,4 @@
 import React from 'react'
-
 export const HighlightButton = (props) => {
   let highlightbtn = true
   if (!props.inputZip.isValid && props.inputZip.val &&

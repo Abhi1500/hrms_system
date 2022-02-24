@@ -1,15 +1,14 @@
-import Form from './form';
-import React, { useEffect, useState } from 'react'
-import { HighlightButton } from './highlightButton';
+import Form from './Helpers/form';
+import React, {  useState } from 'react'
+import { HighlightButton } from './Helpers/highlightButton';
+import PostCreateStudent from './Helpers/postCreateStudent';
+import Avatar from '../../images/avatar.png'
 
-// import Inputbox from '../../Common/Inputbox';
-
-import PostCreateStudent from './postCreateStudent';
 export default function CreateStudent() {
     const [allValues, setAllValues] = useState({
         inputCity: { val: "", isValid: false },
         inputZip: { val: "", isValid: false },
-        avatar: { val: "", isValid: false },
+        avatar: { val: Avatar, isValid: false },
         lname: { val: "", isValid: false },
         fathername: { val: "", isValid: false },
         mothername: { val: "", isValid: false },
@@ -19,14 +18,12 @@ export default function CreateStudent() {
         address: { val: "", isValid: false },
         address2: { val: "", isValid: false },
         State: { val: "", isValid: false }
-
     });
-
+    // console.log(allValues.avatar.val);
     const data = HighlightButton(allValues);
-
     const changeHandler = e => {
-        const key = e.target.name;
-        const val = e.target.value?.trim();
+        const key = e.target?.name;
+        const val = e.target?.value;
         let isValid = true;
 
         switch (key) {
@@ -99,10 +96,12 @@ export default function CreateStudent() {
 
 
     }
+    const handleUploadImage = (file)=>{
+        setAllValues({ ...allValues, 'avatar': { val:file, isValid:false } });
 
-  
+    }
     return (<>
-        <Form allValues={allValues} event={changeHandler} setval = {setAllValues}/>
+        <Form allValues={allValues} event={changeHandler} handleUploadImage={handleUploadImage} avatar={Avatar} setval = {setAllValues}/>
         <PostCreateStudent allValue={allValues}  HighlightButton={data} />
     </>)
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,20 +12,14 @@ export default function SignUpPage1() {
     const changeHandler = e => {
         let key = e.target.name;
         let val = e.target.value?.trim();
-        console.log(val)
         let isValid = true;
-
         switch (key) {
             case 'username':
-                console.log(key, val?.length);
-
                 if (val?.length)
                     isValid = false;
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
                 break;
             case 'email':
-                console.log(key, val?.length);
-
                 if (val?.length && /\S+@\S+\.\S+/.test(val))
                     isValid = false;
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
@@ -36,15 +30,12 @@ export default function SignUpPage1() {
                 console.log(isValid);
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
                 break;
-
-                break;
             case 'confirm_password':
                 console.log(key, val?.length);
 
                 if (val?.length && val === allvalues.password.val)
                     isValid = false;
                 setAllvalues({ ...allvalues, [key]: { val, isValid } })
-                console.log('jjjj', isValid);
                 break;
             default:
                 break;
@@ -57,7 +48,7 @@ export default function SignUpPage1() {
         let n1 = allvalues.username.val
         let n2 = allvalues.email.val
         let n3 = allvalues.password.val
-        const res = await axios.post("https://797b-103-62-237-69.ngrok.io/user/signup", { name: n1, email: n2, password: n3 })
+         await axios.post("https://19e5-2405-201-4017-2902-b1f0-a0bb-3300-389b.ngrok.io/user/signup", { name: n1, email: n2, password: n3 })
             .then(response => {
                 let res = response.data;
 

@@ -17,7 +17,7 @@ export default function Modalalert(props) {
         setLoader('d-none')
         setLoaderdisplay('d-block')
         // console.log(loader);
-        await axios.delete(`https://797b-103-62-237-69.ngrok.io/students/delete?${id}`)
+        await axios.delete(`https://19e5-2405-201-4017-2902-b1f0-a0bb-3300-389b.ngrok.io/students/delete?${id}`)
             .then((res) => {
                 props.fetchUserList()
                 // setLoader(!loader)
